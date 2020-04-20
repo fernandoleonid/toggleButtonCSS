@@ -1,0 +1,105 @@
+.toggle {
+    display: none;
+}
+.button-toggle {
+    --toggle-width: 75px;
+    --toggle-heigth: calc(var(--toggle-width)/2);
+    --toggle-font-size: calc(var(--toggle-width) / 6);
+
+    width: var(--toggle-width);
+    height: var(--toggle-heigth);
+    position: absolute;
+    cursor: pointer;
+}
+
+.button-toggle::before {
+    display: flex;
+    box-sizing: border-box;
+    content: "";
+    height: var(--toggle-heigth);
+    border-radius: var(--toggle-heigth);
+    background-color:rgb(100, 100, 100);
+    transition: all .6s ease-in-out;
+}
+
+.button-toggle::after {
+    position: absolute;
+    box-sizing: border-box;
+    content: "";
+    left: 5%;
+    top: 10%;
+    border-radius: 50%;
+    width: 40%;
+    height: 80%;
+    background-color: white;
+    transition: all .6s ease-in-out;
+}
+
+.toggle:checked + .button-toggle::before{
+    background-color: goldenrod;
+}
+.toggle:checked + .button-toggle::after{
+    left: 55%;
+}
+
+.text::before {
+    content: "OFF";
+    justify-content: flex-end;
+    align-items: center;
+    font: bolder var(--toggle-font-size) arial;
+    padding: 0 10%;
+    color: #fff;
+}
+
+.toggle:checked + .text::before{
+    content: "ON";
+    justify-content: flex-start;
+}
+
+
+.slim::before {
+    height: 20%;
+    margin: 20% 0;
+}
+
+.slim::after {
+    left: 0;
+    background-color: grey;
+    box-shadow: 0 0 4px grey;
+}
+
+.toggle:checked + .slim::after{
+    left: 60%;
+    background-color: goldenrod;
+    box-shadow: 0 0 4px goldenrod;
+}
+
+.square::before {
+    border-radius: 0;
+    border: solid 2px grey;
+    background-color: transparent;
+}
+.square::after {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    content: "OFF";
+    width: 40%;
+    height: 80%;
+    left: 4%;
+    top: 10%;
+    border-radius: 0;
+    font: bolder var(--toggle-font-size) arial;
+    background-color: grey;
+}
+
+.toggle:checked + .square::before{
+    background-color:transparent;
+    border-color: goldenrod;
+}
+
+.toggle:checked + .square::after{
+    left: 56%;
+    content: "ON";
+    background-color: goldenrod;
+}
